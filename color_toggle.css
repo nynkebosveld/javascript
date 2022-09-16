@@ -1,0 +1,46 @@
+.hamburger_menu {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.container{
+    width: 35px;
+    height: 30px;
+}
+
+.menu_container {
+    width: 100px;
+    height: auto;
+    display: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li button{
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+    width: 100px;
+}
+
+.pink button{
+    background-color: pink;
+}
+
+.yellow button{
+    background-color: yellow;
+}
+
+.blue button{
+    background-color: blue;
+    color: white;
+}
+
+.purple button{
+    background-color: purple;
+    color: white;
+}

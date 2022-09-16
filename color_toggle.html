@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Toggle</title>
+    <link rel="stylesheet" href="color_toggle.css">
+</head>
+<body>
+<div id="hamburger" class="container">
+<div class="hamburger_menu"></div>
+<div class="hamburger_menu"></div>
+<div class="hamburger_menu"></div>
+</div>
+
+<div id="menu" class="menu_container">
+    <ul>
+        <li id="home"><button>Home</button></li>
+        <li id="1" class="pink"><button>pink</button></li>
+        <li id="2" class="yellow"><button>yellow</button></li>
+        <li id="3" class="blue"><button>blue</button></li>
+        <li id="4" class="purple"><button>purple</button></li>
+    </ul>
+</div>
+
+
+<script>
+window.addEventListener('load',
+    () => {
+
+        document.getElementById('hamburger').addEventListener('click', () => {
+            if (document.getElementById("menu").style.display == "none"){
+                document.getElementById("menu").style.display = "block"
+            }else {
+                document.getElementById("menu").style.display = "none"
+            }
+        })
+
+        document.getElementById('home').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'white';
+            document.getElementById("menu").style.display = "none"
+        })
+
+        document.getElementById('1').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'pink';
+            document.getElementById("menu").style.display = "none"
+        })
+
+        document.getElementById('2').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'yellow';
+            document.getElementById("menu").style.display = "none"
+        })
+
+        document.getElementById('3').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'blue';
+            document.getElementById("menu").style.display = "none"
+        })
+
+        document.getElementById('4').addEventListener('click', () => {
+            document.body.style.backgroundColor = 'purple';
+            document.getElementById("menu").style.display = "none"
+        })
+
+    })
+</script>
+</body>
+</html>

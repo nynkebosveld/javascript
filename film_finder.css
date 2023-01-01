@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: "Andale Mono";
+}
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    font-family: "Andale Mono";
+}
+
+li{
+    list-style-type: none;
+    margin: 10px;
+}
+
+#movie{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

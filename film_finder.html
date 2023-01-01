@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Film finder</title>
+    <script src="movies.js"></script>
+    <link rel="stylesheet" href="film_finder.css">
+</head>
+<body>
+<header>
+    <h1>Winc Film Finder</h1>
+<nav>
+    <span>
+    <input type="radio" id="Latest" name="film-filter" value="latest-movies">
+    <label for="Latest">Latest movies, 2014 or newer</label>
+    </span>
+    <span>
+    <input type="radio" id="Avenger" name="film-filter" value="avenger-movies">
+    <label for="Avenger">Avenger movies</label>
+    </span>
+    <span>
+    <input type="radio" id="X-men" name="film-filter" value="x-men-movies">
+    <label for="X-men">X-Men movies</label>
+    </span>
+    <span>
+    <input type="radio" id="Princess" name="film-filter" value="princess-movies">
+    <label for="Princess">Princess movies</label>
+    </span>
+    <span>
+    <input type="radio" id="Batman" name="film-filter" value="batman-movies">
+    <label for="Batman">Batman movies</label>
+    </span>
+</nav>
+</header>
+<div class="main">
+    <ul id="movie"></ul>
+</div>
+<script>
+    window.onload = addEventListeners(), filterMovies("")
+
+    function addMoviesToDom(movies) {
+        let allLi = document.getElementsByTagName("li")
+        let ul = document.querySelector("#movie")
+        if(allLi.length > 0){
+            var child = ul.lastElementChild;
+            while (child) {
+                ul.removeChild(child);
+                child = ul.lastElementChild;
+            }
+        }
+
+        movies.forEach(function (item) {
+            let li = document.createElement("li");
+            li.innerHTML = item;
+            ul.appendChild(li);
+        });
+    }
+
+    function addEventListeners(){
+        const radioButtons = document.getElementsByName("film-filter")
+        radioButtons.forEach(function (value){
+            value.addEventListener("change", function (e){
+                handleOnEvent(e)
+            })
+        })
+    }
+
+    function handleOnEvent(event){
+        switch (event.target.value) {
+            case "latest-movies":
+                filterLatestMovies()
+                break;
+
+            case "princess-movies":
+                filterMovies("Princess")
+                break;
+
+            case "avenger-movies":
+                filterMovies("Avenger")
+                break;
+
+            case "x-men-movies":
+                filterMovies("X-Men")
+                break;
+
+            case "batman-movies":
+                filterMovies("Batman")
+                break;
+        }
+    }
+
+    function filterMovies(wordInMovie) {
+        const array = movies.map(function (movie) {
+            if (movie.title.includes(wordInMovie)) {
+                    return `<a href="https://www.imdb.com/title/${movie.imdbID}/"><img src="${movie.poster}" alt="${movie.title}"></a>`;
+            }
+        });
+        array.forEach((value, index) => {
+                array.filter(removeValue)
+        })
+        addMoviesToDom(array)
+    }
+
+    function filterLatestMovies(){
+        const array = movies.map(function (movie) {
+            if (movie.year >= 2014) {
+                return `<a href=""><img src="${movie.poster}" alt="${movie.title}"></a>`;
+            }
+        });
+        array.forEach((value, index) => {
+            array.filter(removeValue)
+        })
+        addMoviesToDom(array)
+    }
+
+    function removeValue(value, index, arr) {
+        // If the value at the current array index matches the specified value (2)
+        if (value === undefined) {
+            // Removes the value from the original array
+            arr.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>
